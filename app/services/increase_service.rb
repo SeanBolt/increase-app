@@ -1,28 +1,30 @@
+# frozen_string_literal: true
+
 class IncreaseService
-  BASE_REQUEST = HTTP.auth("Bearer " + ENV['BEARER_TOKEN'])
+  BASE_REQUEST = HTTP.auth("Bearer #{ENV['BEARER_TOKEN']}")
 
   def list_accounts
-    get("/accounts")
+    get('/accounts')
   end
 
   def list_account(account_id)
-    get("/accounts/" + account_id)
+    get("/accounts/#{account_id}")
   end
 
   def list_transfers
-    get("/transfers")["data"]
+    get('/transfers')
   end
 
   def list_transfer(transfer_id)
-    get("/transfers/achs/" +transfer_id)
+    get("/transfers/achs/#{transfer_id}")
   end
 
   def list_entities
-    get("/entities")
+    get('/entities')
   end
 
   def list_entity(entity_id)
-    get("/entities/" + entity_id)
+    get("/entities/#{entity_id}")
   end
 
   def create_ach_transfer(account_id, amount, account_number, routing_number, statement_descriptor)
