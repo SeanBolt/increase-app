@@ -1,0 +1,6 @@
+<H2>
+  My Increase Accounts
+</H2>
+<% @accounts.each do |account| %>
+  <%= link_to account["name"], "#{ENV['INCREASE_BASE_APP_URL']}#{account["path"]}", target: "_blank" %>
+<% end %>
